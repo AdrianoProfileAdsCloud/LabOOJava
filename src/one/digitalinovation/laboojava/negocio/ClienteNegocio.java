@@ -2,52 +2,93 @@ package one.digitalinovation.laboojava.negocio;
 
 import one.digitalinovation.laboojava.basedados.Banco;
 import one.digitalinovation.laboojava.entidade.Cliente;
-
 import java.util.Optional;
 
 /**
  * Classe para manipular a entidade {@link Cliente}.
+ * 
  * @author thiago leite
  */
 public class ClienteNegocio {
 
-    /**
-     * {@inheritDoc}.
-     */
-    private Banco bancoDados;
+	/**
+	 * {@inheritDoc}.
+	 */
+	private static Banco bancoDados;
 
-    /**
-     * Construtor.
-     * @param banco Banco de dados para ter acesso aos clientes cadastrados
-     */
-    public ClienteNegocio(Banco banco) {
-        this.bancoDados = banco;
-    }
+	/**
+	 * Construtor.
+	 * 
+	 * @param banco Banco de dados para ter acesso aos clientes cadastrados
+	 */
+	public ClienteNegocio(Banco banco) {
+		ClienteNegocio.bancoDados = banco;
+	}
 
-    /**
-     * Consulta o cliente pelo seu CPF.
-     * @param cpf CPF de um cliente
-     * @return O cliente que possuir o CPF passado.
-     */
-    public Optional<Cliente> consultar(String cpf) {
+	/**
+	 * Consulta o cliente pelo seu CPF.
+	 * 
+	 * @param cpf CPF de um cliente
+	 * @return O cliente que possuir o CPF passado.
+	 */
 
-        if (bancoDados.getCliente().getCpf().equals(cpf)) {
-            return Optional.of(bancoDados.getCliente());
-        } else {
-            return Optional.empty();
-        }
-    }
+	/* Adriano Aparecido da Silva */
 
-    /**
-     * Cadastra um novo cliente.
-     * @param cliente Novo cliente que terá acesso a aplicação
-     */
-    //TODO Fazer a inclusão de cliente
+	public Optional<Cliente> consultarCliente(String cpf) {
 
-    /**
-     * Exclui um cliente específico.
-     * @param cpf CPF do cliente
-     */
-    //TODO Fazer a exclusão de cliente
+		for (Cliente cliente : bancoDados.getCliente()) {
+			if (cliente.getCpf().equalsIgnoreCase(cpf)) {
+				return Optional.ofNullable(cliente);
+			}
 
-}
+		}
+		return Optional.empty();
+	}
+
+	/**
+	 * Cadastra um novo cliente.
+	 * 
+	 * @param cliente Novo cliente que terá acesso a aplicação
+	 */
+
+	/* Adriano Aparecido da Silva */
+
+	public void adicionarCliente(Cliente cliente) {
+		bancoDados.adiconarCliente(cliente);
+	}
+
+	/**
+	 * Exclui um cliente específico.
+	 * 
+	 * @param cpf CPF do cliente
+	 * @return 
+	 */
+
+
+	/* Adriano Aparecido da Silva */
+
+ 
+	public void listarClientes() {
+		
+		if (bancoDados.getCliente().length == 0) {
+			System.out.println("Não existem clientes Cadastrados");
+		} else {
+
+			for (Cliente cliente : bancoDados.getCliente()) {
+				System.out.println(cliente.toString());
+			}
+		}
+	}
+	public void excluirCliente(String cpf) {
+
+		Optional<Cliente> excluirCliente = consultarCliente(cpf);
+		excluirCliente.ifPresentOrElse((c)->{
+			bancoDados.removerCliente(excluirCliente.get());
+			System.out.println("Cliente excluido com sucesso");
+		},()-> {
+			System.out.println("Cliente nã encontrado");
+		});
+	}
+		
+	}
+

@@ -1,5 +1,7 @@
 package one.digitalinovation.laboojava.entidade;
 
+import java.util.Objects;
+
 /**
  * Classe que representa a entidade cliente. Este pode fazer um pedido.
  * @author thiago leite
@@ -17,8 +19,6 @@ public class Cliente {
     private String cpf;
 
     public Cliente() {
-        this.nome = "Fulano";
-        this.cpf = "123456789011";
     }
 
     public String getNome() {
@@ -37,8 +37,27 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{ nome='" + nome + "'}";
-    }
+    
+	@Override
+	public String toString() {
+		return "Cliente [nome=" + nome + ", cpf=" + cpf + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cpf, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(cpf, other.cpf) && Objects.equals(nome, other.nome);
+	}
+    
 }

@@ -1,91 +1,154 @@
 package one.digitalinovation.laboojava.negocio;
 
 import one.digitalinovation.laboojava.basedados.Banco;
+import one.digitalinovation.laboojava.entidade.Caderno;
+import one.digitalinovation.laboojava.entidade.Livro;
 import one.digitalinovation.laboojava.entidade.Produto;
 
 import java.util.Optional;
 
 /**
  * Classe para manipular a entidade {@link Produto}.
+ * 
  * @author thiago leite
  */
 public class ProdutoNegocio {
 
-    /**
-     * {@inheritDoc}.
-     */
-    private Banco bancoDados;
+	/**
+	 * {@inheritDoc}.
+	 */
+	private Banco bancoDados;
 
-    /**
-     * Construtor.
-     * @param banco Banco de dados para ter armazenar e ter acesso os produtos
-     */
-    public ProdutoNegocio(Banco banco) {
-        this.bancoDados = banco;
-    }
+	/**
+	 * Construtor.
+	 * 
+	 * @param banco Banco de dados para ter armazenar e ter acesso os produtos
+	 */
+	public ProdutoNegocio(Banco banco) {
+		this.bancoDados = banco;
+	}
 
-    /**
-     * Salva um novo produto(livro ou caderno) na loja.
-     * @param novoProduto Livro ou caderno que pode ser vendido
-     */
-    public void salvar(Produto novoProduto) {
+	/**
+	 * Salva um novo produto(livro ou caderno) na loja.
+	 * 
+	 * @param novoProduto Livro ou caderno que pode ser vendido
+	 */
+	public void salvar(Produto novoProduto) {
 
-        String codigo = "PR%04d";
-        codigo = String.format(codigo, bancoDados.getProdutos().length);
-        novoProduto.setCodigo(codigo);
+		/*
+		 * Autor Adriano Aparecido da Silva
+		 */
 
-        boolean produtoRepetido = false;
-        for (Produto produto: bancoDados.getProdutos()) {
-            if (produto.getCodigo() == novoProduto.getCodigo()) {
-                produtoRepetido = true;
-                System.out.println("Produto já cadastrado.");
-                break;
-            }
-        }
+		if (novoProduto instanceof Caderno) {
+			String codigo = "CA%04d";
+			codigo = String.format(codigo, bancoDados.getProdutos().length);
+			novoProduto.setCodigo(codigo);
+		} else {
+			String codigo = "LI%04d";
 
-        if (!produtoRepetido) {
-            this.bancoDados.adicionarProduto(novoProduto);
-            System.out.println("Produto cadastrado com sucesso.");
-        }
-    }
+			codigo = String.format(codigo, bancoDados.getProdutos().length);
+			novoProduto.setCodigo(codigo);
+		}
 
-    /**
-     * Exclui um produto pelo código de cadastro.
-     * @param codigo Código de cadastro do produto
-     */
-    public void excluir(String codigo) {
-        //TODO Implementar a exclusão
-    }
+		boolean produtoRepetido = false;
+		for (Produto produto : bancoDados.getProdutos()) {
+			if (produto.getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
+				produtoRepetido = true;
+				System.out.println("Produto já cadastrado.");
+				break;
+			}
+		}
 
-    /**
-     * Obtem um produto a partir de seu código de cadastro.
-     * @param codigo Código de cadastro do produto
-     * @return Optional indicando a existência ou não do Produto
-     */
-    public Optional<Produto> consultar(String codigo) {
+		if (!produtoRepetido) {
+			this.bancoDados.adicionarProduto(novoProduto);
+			System.out.println("Produto cadastrado com sucesso.");
+		}
+	}
 
-        for (Produto produto: bancoDados.getProdutos()) {
+	/**
+	 * Exclui um produto pelo código de cadastro.
+	 * 
+	 * @param codigo Código de cadastro do produto
+	 */
+	
+	/*
+	 * Author: Adrano Aparecido da Silva
+	 */
+	public void excluir(String codigo) {
+		
+		Optional<Produto> produto = consultar(codigo);
+		produto.ifPresentOrElse((p)->{
+			bancoDados.removerProduto(produto.get());
+			System.out.println("Produto excluido com sucesso");
+		},()->{
+			System.out.println("Produto Não econtrado");
+		});
+	}
 
-            if (produto.getCodigo().equalsIgnoreCase(codigo)) {
-                return  Optional.of(produto);
-            }
-        }
+	/**
+	 * Obtem um produto a partir de seu código de cadastro.
+	 * 
+	 * @param codigo Código de cadastro do produto
+	 * @return Optional indicando a existência ou não do Produto
+	 */
+	public Optional<Produto> consultar(String codigo) {
 
-        return Optional.empty();
-    }
+		for (Produto produto : bancoDados.getProdutos()) {
 
-    /**
-     * Lista todos os produtos cadastrados.
-     */
-    public void listarTodos() {
+			if (produto.getCodigo().equalsIgnoreCase(codigo)) {
+				return Optional.of(produto);
+			}
+		}
 
-        if (bancoDados.getProdutos().length == 0) {
-            System.out.println("Não existem produtos cadastrados");
-        } else {
+		return Optional.empty();
+	}
 
-            for (Produto produto: bancoDados.getProdutos()) {
-                System.out.println(produto.toString());
-            }
-        }
-    }
+	/*
+	 * Autor Adriano Aparecido da Silva
+	 */
+
+	public Optional<Produto> consultarLivroPorNome(String nome) {
+
+		for (Produto produto : bancoDados.getProdutos()) {
+			Livro livro = (Livro) produto;
+
+			if (livro.getNome().equalsIgnoreCase(nome)) {
+				return Optional.of(produto);
+			}
+		}
+
+		return Optional.empty();
+	}
+
+	/*
+	 * Autor Adriano Aparecido da Silva
+	 */
+
+	public Optional<Produto> consultarCadernoPorMateria(String materia) {
+
+		for (Produto produto : bancoDados.getProdutos()) {
+			Caderno caderno = (Caderno) produto;
+
+			if (caderno.getMateria().name().equalsIgnoreCase(materia)) {
+				return Optional.of(produto);
+			}
+		}
+
+		return Optional.empty();
+	}
+
+	/**
+	 * Lista todos os produtos cadastrados.
+	 */
+	public void listarTodos() {
+
+		if (bancoDados.getProdutos().length == 0) {
+			System.out.println("Não existem produtos cadastrados");
+		} else {
+
+			for (Produto produto : bancoDados.getProdutos()) {
+				System.out.println(produto.toString());
+			}
+		}
+	}
 }
