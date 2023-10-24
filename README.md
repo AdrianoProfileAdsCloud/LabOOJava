@@ -10,7 +10,7 @@ Olá! Este é o projeto de prática do LabOO Java da DIO. Algumas consideraçõe
 Este primeiro Lab do bootcamp da DIO Desenvolvimento Java com Cloud AWS teve como objetivo principal a compreender e aplicar os paradgmas da Orientação Objetos.
 
  * Desafios propostos para este Lab:
-   Consultar Livro(nome)
+   1. Consultar Livro(nome)
    Consultar Caderno(matéria)
    Consultar Pedido(código)
    Cadastrar Caderno
