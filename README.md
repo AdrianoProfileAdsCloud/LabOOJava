@@ -11,7 +11,7 @@ Este primeiro Lab do bootcamp da DIO Desenvolvimento Java com Cloud AWS teve com
 
  * Desafios propostos para este Lab:
    1. Consultar Livro(nome)
-   Consultar Caderno(matéria)#739
+   -[X] Consultar Caderno(matéria)#739
    Consultar Pedido(código)
    Cadastrar Caderno
    Excluir Caderno
