@@ -10,16 +10,16 @@ Olá! Este é o projeto de prática do LabOO Java da DIO. Algumas consideraçõe
 Este primeiro Lab do bootcamp da DIO Desenvolvimento Java com Cloud AWS teve como objetivo principal a compreender e aplicar os paradgmas da Orientação Objetos.
 
  * Desafios propostos para este Lab:
-   1. Consultar Livro(nome)
-   - [X] Consultar Caderno(matéria)#739
-   Consultar Pedido(código)
-   Cadastrar Caderno
-   Excluir Caderno
-   Listar todos os Pedidos
-   Cadastrar mais de um cliente
-   Criar a entidade Caderno 
-   Implementação da entidade Pedido, a qual foi implementada de acordo com o que foi apredido no lab e pesquisas no Stack OverFlow
-   Implementação do Método de cálculo de frete da entidade produto, a qual foi implementada de acordo com o que foi apredido no lab e pesquisas no Stack OverFlow
-   Implementação de PedidoNegocio, também implementada de acordo com o que foi apredido no lab e pesquisas no Stack OverFlow
+   - [X] Consultar Livro(nome)
+   - [X] Consultar Caderno(matéria)
+   - [X] Consultar Pedido(código)
+   - [X] Cadastrar Caderno
+   - [X] Excluir Caderno
+   - [X] Listar todos os Pedidos
+   - [X] Cadastrar mais de um cliente
+   - [X] Criar a entidade Caderno 
+   - [X] Implementação da entidade Pedido, a qual foi implementada de acordo com o que foi apredido no lab e pesquisas no Stack OverFlow
+   - [X] Implementação do Método de cálculo de frete da entidade produto, a qual foi implementada de acordo com o que foi apredido no lab e pesquisas no Stack OverFlow
+   - [X] Implementação de PedidoNegocio, também implementada de acordo com o que foi apredido no lab e pesquisas no Stack OverFlow
    
   Outras implementações e uso de recursos da linguagem JAVA foram utilizados de forma a por em prática parte dos conceitos OO.    
