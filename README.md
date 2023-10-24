@@ -1,12 +1,13 @@
 # LabOO Java
 
-Olá! Este é o projeto de prática do LabOO Java da DIO. Algumas considerações deve ser informadas:
+Olá! Este é o projeto de prática do LabOO Java da DIO. Algumas considerações devem ser informadas:
 
 * _Nenhum tratamento de erro foi feito_: forneça exatametne o que se pede. Não tente informar dados inexperados que a aplicação irá quebrar e encerrar.
-* _Desafios_: Existem alguns desafios quais você terá que responder. Para estes não existe código de resposta.
-* _Complementos_: Existem alguns postas no projeto que você poderá responder baseados nos videos e na resposta(arquivo LabOOJava_Resposta.zip)
+* Ob: Para esta primeira fase do andamento do bootcamo é o que se pede!
+* _Desafios_: Existem alguns desafios foram propostos para resolução. Para estes não teve código de resposta.
+* _Complementos_: Como base para resolução destes desafios foi lançado mão de recursos de videos do próprio bootcamp e pesquisas no stack overflow 
 
-Espero que este Lab(projeto e videos) te ajude a aprender mais sobre OO. Grande abraço.Dúvidas e questionamentos favor mandar mensagem via LinkedIn.
+Este primeiro Lab do bootcamp da DIO Desenvolvimento Java com Cloud AWS teve como objetivo principal a compreender e aplicar os paradgmas da Orientação Objetos.
 
 Grande abraço e bons estudos.
 
