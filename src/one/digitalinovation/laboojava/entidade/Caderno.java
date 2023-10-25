@@ -23,9 +23,9 @@ public class Caderno extends Produto {
 
 	@Override
 	public String toString() {
-		return "Caderno [materia=" + materia + ","
-				+ "" + " getCodigo()=" + getCodigo() + ","
-						+ "" + " getPreco()=" + getPreco()+ "]";
+		return "Caderno [Matéria=" + materia + ","
+				+ "" + "Código=" + getCodigo() + ","
+						+ "" + "Preco=" + getPreco()+ "]";
 	}
 
 	@Override

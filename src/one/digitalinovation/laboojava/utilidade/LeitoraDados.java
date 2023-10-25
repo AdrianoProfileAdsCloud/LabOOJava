@@ -97,7 +97,7 @@ public final class LeitoraDados {
 		System.out.println("Cadastrando pedido...");
 		Pedido pedido = new Pedido();
 
-		String opcao = "s";
+		String opcao = "S";
 		do {
 
 			System.out.println("Digite o código do produto(livro/Caderno)");
@@ -118,8 +118,8 @@ public final class LeitoraDados {
 			}
 
 			System.out.println("Deseja selecionar mais um produto? s/n");
-			opcao = lerDado();
-		} while("s".equals(opcao));
+			opcao = lerDado().toUpperCase();
+		} while("S".equals(opcao));
 
 		return pedido;
 	}

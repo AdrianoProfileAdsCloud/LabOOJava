@@ -110,9 +110,9 @@ public class Start {
 				Optional<Cupom> cupom = LeitoraDados.lerCupom(banco);
 
 				if (cupom.isPresent()) {
-					pedidoNegocio.salvar(pedido, cupom.get());
+					pedidoNegocio.salvar(pedido, cupom.get(),clienteLogado);
 				} else {
-					pedidoNegocio.salvar(pedido);
+					pedidoNegocio.salvar(pedido,clienteLogado);
 				}
 				break;
 			case "9":
@@ -257,7 +257,7 @@ public class Start {
 			System.out.println("Digite o cpf:");
 			cpf = LeitoraDados.lerDado();
 			identificarUsuario(cpf);
-			//System.out.println(String.format("Olá %s! Você está logado.", clienteLogado.get().getNome()));
+			System.out.println(String.format("Olá %s! Você está logado.", clienteLogado.get().getNome()));
 			break;
 		}
 		case "N": {

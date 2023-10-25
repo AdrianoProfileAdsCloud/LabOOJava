@@ -3,7 +3,6 @@ package one.digitalinovation.laboojava.entidade;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Classe que representa a entidade pedido, qual é a compra dos produtos por um cliente.
@@ -13,7 +12,7 @@ public class Pedido {
 
   
 private String codigo;
-   private Optional<Cliente> cliente;
+   private Cliente cliente;
    private List<Produto> produtos;
    private double total;
    
@@ -27,11 +26,11 @@ public String getCodigo() {
 public void setCodigo(String codigo) {
 	this.codigo = codigo;
 }
-public Optional<Cliente> getCliente() {
+public Cliente getCliente() {
 	return cliente;
 }
-public void setCliente(Optional<Cliente> optional) {
-	this.cliente = Optional.empty();
+public void setCliente(Cliente cliente) {
+	this.cliente = cliente;
 }
 public List<Produto> getProdutos() {
 	return produtos;
@@ -87,5 +86,5 @@ public String toString() {
 		return Objects.equals(codigo, other.codigo);
 	}
 
-   
+	   
 }
