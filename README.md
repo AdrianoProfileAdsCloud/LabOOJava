@@ -23,4 +23,4 @@ Este primeiro Lab do bootcamp da Digital Inovation One(DIO) Desenvolvimento Java
    - [X] Implementação de PedidoNegocio, também implementada de acordo com o que foi aprendido no lab e pesquisas no Stack OverFlow
    
  > [!NOTE]
->  Outras implementações e uso de recursos da linguagem JAVA foram utilizados de forma a por em prática parte dos conceitos OO.    
+>  Outras implementações e uso de recursos da linguagem JAVA foram utilizados,para conseguir colocar em prática Programação Orientada a Objetos.    
