@@ -1,6 +1,5 @@
-# LabOO Java
-
-Olá! Este é o projeto de prática do LabOO Java da DIO. Algumas considerações devem ser informadas:
+# DIO - Orientação Objetos -  Java
+ Algumas considerações a respeito desse prjeto:
 
 * _Nenhum tratamento de erro foi feito_: forneça exatametne o que se pede. Não tente informar dados inexperados que a aplicação irá quebrar e encerrar.
 * Ob: Para esta primeira fase do bootcamo é o que se pede!
